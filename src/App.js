@@ -50,6 +50,31 @@ function App() {
     );
   };
 
+  const handleEmail = () => {
+    setTitle("my email is:");
+    setValue(source[0].email);
+  };
+
+  const handleAge = () => {
+    setTitle("my age is:");
+    setValue(source[0].dob.age);
+  };
+
+  const handleAddress = () => {
+    setTitle("my address is:");
+    setValue(`${source[0].location.city}-${source[0].location.country}`);
+  };
+
+  const handlePhone = () => {
+    setTitle("my phone number is:");
+    setValue(source[0].phone);
+  };
+
+  const handlePassword = () => {
+    setTitle("my password is:");
+    setValue(source[0].login.password);
+  };
+  console.log(source[0]);
   return (
     <>
       {isLoading ? (
@@ -77,19 +102,39 @@ function App() {
                     onClick={() => handleName()}
                   />
                 </button>
-                <button className="icon" data-label="email">
+                <button
+                  className="icon"
+                  data-label="email"
+                  onClick={() => handleEmail()}
+                >
                   <img src={mailSvg} alt="mail" id="iconImg" />
                 </button>
-                <button className="icon" data-label="age">
+                <button
+                  className="icon"
+                  data-label="age"
+                  onClick={() => handleAge()}
+                >
                   <img src={womanAgeSvg} alt="age" id="iconImg" />
                 </button>
-                <button className="icon" data-label="street">
+                <button
+                  className="icon"
+                  data-label="street"
+                  onClick={() => handleAddress()}
+                >
                   <img src={mapSvg} alt="map" id="iconImg" />
                 </button>
-                <button className="icon" data-label="phone">
+                <button
+                  className="icon"
+                  data-label="phone"
+                  onClick={() => handlePhone()}
+                >
                   <img src={phoneSvg} alt="phone" id="iconImg" />
                 </button>
-                <button className="icon" data-label="password">
+                <button
+                  className="icon"
+                  data-label="password"
+                  onClick={() => handlePassword()}
+                >
                   <img src={padlockSvg} alt="lock" id="iconImg" />
                 </button>
               </div>
