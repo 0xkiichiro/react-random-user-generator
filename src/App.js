@@ -20,6 +20,7 @@ function App() {
   const [title, setTitle] = useState();
   const [value, setValue] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [userArray, setUserArray] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -74,7 +75,12 @@ function App() {
     setTitle("my password is:");
     setValue(source[0].login.password);
   };
-  console.log(source[0]);
+
+  const handleAddUser = () => {
+    setUserArray([source[0], ...userArray]);
+  };
+
+  console.log(userArray);
   return (
     <>
       {isLoading ? (
@@ -142,7 +148,11 @@ function App() {
                 <button className="btn" type="button" onClick={() => newUser()}>
                   new user
                 </button>
-                <button className="btn" type="button">
+                <button
+                  className="btn"
+                  type="button"
+                  onClick={() => handleAddUser()}
+                >
                   add user
                 </button>
               </div>
@@ -156,9 +166,17 @@ function App() {
                     <th className="th">Age</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr className="body-tr"></tr>
-                </tbody>
+                {userArray?.map((item, index) => (
+                  <tbody key={index}>
+                    {console.log(item)}
+                    <tr className="body-tr">
+                      <td className="td">{item.name.first}</td>
+                      <td className="td">{item.email}</td>
+                      <td className="td">{item.phone}</td>
+                      <td className="td">{item.dob.age}</td>
+                    </tr>
+                  </tbody>
+                ))}
               </table>
             </div>
           </div>
