@@ -1,4 +1,4 @@
-##Random-user-generator
+# Random User Generator V2
 
 Made a project that use an open source REST API to fetch a random persons data and render on page on click to different buttons.
 
